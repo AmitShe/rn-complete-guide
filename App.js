@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, TextInput, Button, Text } from 'react-native';
+import React, { useState } from 'react'
+import { StyleSheet, View, TextInput, Button, Text } from 'react-native'
 
 export default function App() {
-  const [enteredGoal, setEnteredGoal] = useState('');
-  const [courseGoals, setCourseGoals] = useState([]);
+  const [enteredGoal, setEnteredGoal] = useState('')
+  const [courseGoals, setCourseGoals] = useState([])
   const goalInputHandler = (enterText) => {
-    setEnteredGoal(enterText);
-  };
+    setEnteredGoal(enterText)
+  }
 
   const addGoalHandler = () => {
     setCourseGoals(currentGoals => [...currentGoals, enteredGoal])
@@ -16,18 +16,18 @@ export default function App() {
     <View style={style.screen}>
       <View style={style.inputComtainer}>
         <TextInput
-        placeholder='Course Goal'
-        style={style.input}
-        onChangeText={goalInputHandler}
-        value={enteredGoal}
+          placeholder='Course Goal'
+          style={style.input}
+          onChangeText={goalInputHandler}
+          value={enteredGoal}
         />
-        <Button title='ADD' onPress={addGoalHandler}/>
+        <Button title='ADD' onPress={addGoalHandler} />
       </View>
       <View>
-        <Text value={courseGoals} />
+        {courseGoals.map(goal => <Text key={goal}>{goal}</Text>)}
       </View>
     </View>
-  );
+  )
 }
 
 const style = StyleSheet.create({
@@ -45,4 +45,4 @@ const style = StyleSheet.create({
     borderWidth: 1,
     padding: 10
   }
-});
+})
