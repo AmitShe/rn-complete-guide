@@ -16,7 +16,10 @@ export default function App() {
   }
 
   const addGoalHandler = () => {
-    setCourseGoals((currentGoals) => [...currentGoals, {id: Math.random().toString(), value: enteredGoal}])
+    setCourseGoals((currentGoals) => [
+      ...currentGoals,
+      { id: Math.random().toString(), value: enteredGoal },
+    ])
   }
 
   return (
@@ -32,15 +35,13 @@ export default function App() {
       </View>
       <View>
         <FlatList
-        keyExtractor={(item, index) => (item.id)}
+          keyExtractor={(item, index) => item.id}
           data={courseGoals}
-          renderItem={
-            (itemDate => (
-              <View style={style.listItem}>
-                <Text>{itemDate.item.value}</Text>
-              </View>
-            ))
-          }
+          renderItem={(itemDate) => (
+            <View style={style.listItem}>
+              <Text>{itemDate.item.value}</Text>
+            </View>
+          )}
         />
       </View>
     </View>
