@@ -17,6 +17,10 @@ export default function App() {
     ])
   }
 
+  const removeGoal = (goalId) => {
+    setCourseGoals((currentGoals) => (currentGoals.filter(goal => goal.id !== goalId)))
+  }
+
   return (
     <View style={style.screen}>
       <GoalInput onAddGoal={addGoalHandler} />
@@ -25,7 +29,7 @@ export default function App() {
           keyExtractor={(item, index) => item.id}
           data={courseGoals}
           renderItem={(itemDate) => (
-              <GoalItem title={itemDate.item.value} />
+              <GoalItem title={itemDate.item.value} onDelete={() => removeGoal(itemDate.item.id)}/>
           )}
         />
       </View>
@@ -54,5 +58,5 @@ const style = StyleSheet.create({
     backgroundColor: "#ccc",
     borderColor: "black",
     borderWidth: 1,
-  },
+  }
 })
