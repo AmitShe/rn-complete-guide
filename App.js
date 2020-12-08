@@ -1,12 +1,12 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import {
   StyleSheet,
   View,
   FlatList,
   Button
-} from "react-native"
-import GoalItem from "./components/GoalItem";
-import GoalInput from "./components/GoalInput";
+} from 'react-native'
+import GoalItem from './components/GoalItem';
+import GoalInput from './components/GoalInput';
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([])
@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <View style={style.screen}>
-      <Button onPress={() => setIsAddMode(true)} title="Add New" />
+      <Button onPress={() => setIsAddMode(true)} title='Add New' />
       <GoalInput visible={isAddMode} onAddGoal={addGoalHandler} onCancel={cancelAddGoalModel}/>
       <View>
         <FlatList
@@ -50,16 +50,16 @@ const style = StyleSheet.create({
     padding: 30,
   },
   input: {
-    width: "80%",
-    borderColor: "black",
+    width: '80%',
+    borderColor: 'black',
     borderWidth: 1,
     padding: 10,
   },
   listItem: {
     padding: 10,
     margin: 10,
-    backgroundColor: "#ccc",
-    borderColor: "black",
+    backgroundColor: '#ccc',
+    borderColor: 'black',
     borderWidth: 1,
   }
 })
